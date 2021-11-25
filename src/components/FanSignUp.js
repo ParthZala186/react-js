@@ -36,7 +36,13 @@ export default function FanSignUp() {
   };
 
   function createUser(fields, setSubmitting) {
-    axios.post(baseURL, { fields })
+    axios.post(baseURL,
+      {
+        Headers:{
+          "access-control-allow-origin" : "*",
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      }, { fields })
       .then((e) => {
         console.log("data saved == ", e)
         Swal.fire({
