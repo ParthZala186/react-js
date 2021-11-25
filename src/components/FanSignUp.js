@@ -41,8 +41,9 @@ export default function FanSignUp() {
         Headers:{
           "access-control-allow-origin" : "*",
           "Content-type": "application/json; charset=UTF-8"
-        }
-      }, { fields })
+        },
+        fields 
+      },)
       .then((e) => {
         console.log("data saved == ", e)
         Swal.fire({
