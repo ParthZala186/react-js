@@ -6,7 +6,7 @@ export default function FormContainer() {
     return (
         <>            
             <Container maxWidth="sm">
-                <Box sx={{ bgcolor: '#808080', height: '100vh', width:"100%" }}>
+                <Box sx={{ bgcolor: "rgb(31,31,31)", height: '100vh', width:"100%" }}>
                     <Tabs/>
                 </Box>
             </Container>            

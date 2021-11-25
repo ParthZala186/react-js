@@ -50,8 +50,7 @@ export default function TalentSignUp() {
          });
       }
 
-      function onSubmit(fields, { setStatus, setSubmitting }) {   
-          console.log("fields == ",fields)        
+      function onSubmit(fields, { setStatus, setSubmitting }) {                     
           const data = { ...fields};          
           createUser(data, setSubmitting);          
       }
@@ -70,11 +69,11 @@ export default function TalentSignUp() {
                 <>
                   <div className="row mt-5">
                     <div className="form-group col-md-12">
-                      <p className="text-center"><b>Create Your Talent Account</b></p>
-                      <label>First Name</label>
+                      <p className="text-center text-white"><b>Create Your Talent Account</b></p>
+                      <label className="text-white">First Name</label>
                       <br />
                       <Field
-                        style={{ width: "100%", border: "none", backgroundColor: "#808080", borderRadius: "1rem", border: "3px solid green", }}
+                        style={{ width: "100%", border: "none",color:"white", backgroundColor: "#808080", borderRadius: "1rem", border: "3px solid green", }}
                         name="firstName"
                         placeHolder="First Name"
                         type="text"
@@ -93,10 +92,10 @@ export default function TalentSignUp() {
                       />
                     </div>
                     <div className="form-group col-md-12">
-                      <label>Last Name</label>
+                      <label className="text-white">Last Name</label>
                       <br />                      
                       <Field
-                        style={{ width: "100%", backgroundColor: "#808080", border: "none", border: "3px solid green", borderRadius: "1rem" }}
+                        style={{ width: "100%", backgroundColor: "#808080",color:"white", border: "none", border: "3px solid green", borderRadius: "1rem" }}
                         name="lastName"
                         placeHolder="Last Name"
                         type="text"
@@ -117,10 +116,10 @@ export default function TalentSignUp() {
                   </div>
                   <div className="row">
                     <div className="form-group col-md-12">
-                      <label>Username</label>
+                      <label className="text-white">Username</label>
                       <br />                      
                       <Field
-                        style={{ width: "100%", backgroundColor: "#808080", border: "none", border: "3px solid green", borderRadius: "1rem" }}
+                        style={{ width: "100%", backgroundColor: "#808080",color:"white", border: "none", border: "3px solid green", borderRadius: "1rem" }}
                         name="userName"
                         placeHolder="UserName"
                         type="text"
@@ -139,10 +138,10 @@ export default function TalentSignUp() {
                       />
                     </div>
                     <div className="form-group col-12">
-                      <label>Email</label>
+                      <label className="text-white">Email</label>
                       <br />                      
                       <Field
-                        style={{ width: "100%", backgroundColor: "#808080", border: "none", border: "3px solid green", borderRadius: "1rem" }}
+                        style={{ width: "100%", backgroundColor: "#808080",color:"white", border: "none", border: "3px solid green", borderRadius: "1rem" }}
                         name="email"
                         placeHolder="Email"
                         type="text"
@@ -164,11 +163,11 @@ export default function TalentSignUp() {
                   </div>
                   <div className="row">
                     <div className="form-group col-12">
-                      <label>Password</label>
+                      <label className="text-white">Password</label>
                       <div className="d-flex">
                       <div className="col-md-10 p-0">
                         <Field
-                          style={{ width: "100%", border: "none", backgroundColor: "#808080", borderRadius: "1rem", border: "3px solid green", }}
+                          style={{ width: "100%", border: "none",color:"white", backgroundColor: "#808080", borderRadius: "1rem", border: "3px solid green", }}
                           name="password"
                           placeHolder="Password"
                           type={changable ? 'password' : 'text'}
@@ -189,7 +188,7 @@ export default function TalentSignUp() {
                         <label onClick={() => {
                           setChangable(!changable)
                         }}>
-                          {changable ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                          {changable ? <VisibilityOffIcon style={{color:"white"}}/> : <VisibilityIcon style={{color:"white"}}/>}
                         </label>
                       </div>
                       </div>
@@ -197,9 +196,9 @@ export default function TalentSignUp() {
                     </div>
                   </div>
                   <div className="row">&nbsp;</div>
-                  <div style={{ textAlign: "center" }}>
+                  <div style={{ textAlign: "center", color:"white" }}>
                     <FormControlLabel
-                      control={<Checkbox name="checkedA" onClick={() => {
+                      control={<Checkbox name="checkedA" style={{color:"white"}} onClick={() => {
                         setCurrentButtonClick(!currentButtonClick)
                       }} />}
                       label="I accept the terms and conditions."
@@ -210,20 +209,7 @@ export default function TalentSignUp() {
                         <button disabled={currentButtonClick}
                           className="btn btn-success"
                           type="submit" variant="contained" color="success">Sign Up</button>
-                    </div>
-                  {/* <button
-                          disabled={currentButtonClick}
-                          className="btn btn-primary"
-                          type="submit"
-                        >
-                          {isSubmitting && (
-                            <span className="spinner-border spinner-border-sm "></span>
-                          )}
-                          Save
-                        </button> */}
-                  &nbsp; &nbsp; &nbsp;
-
-
+                    </div>   
                 </>
               </Form>
             );

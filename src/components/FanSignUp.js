@@ -16,9 +16,9 @@ export default function FanSignUp() {
   const [changable, setChangable] = useState(true);
   const [currentButtonClick, setCurrentButtonClick] = useState(true)
   const validationSchema = Yup.object().shape({
-    firstName: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field ").required("First Name is required"),
-    lastName: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field ").required("Last Name is required"),
-    userName: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required("Username is required"),
+    firstName: Yup.string().min(5, 'Too Short!').max(50, 'Too Long!').matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field ").required("First Name is required"),
+    lastName: Yup.string().min(5, 'Too Short!').max(50, 'Too Long!').matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field ").required("Last Name is required"),
+    userName: Yup.string().min(5, 'Too Short!').max(50, 'Too Long!').required("Username is required"),
     email: Yup.string().email('Email is invalid').required("Email is required"),
     password: Yup.string().matches(
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
@@ -79,12 +79,13 @@ export default function FanSignUp() {
                 <>
                   <div className="row mt-5">
                     <div className="form-group col-md-12">
-                      <p className="text-center"><b>Create Your Fan Account</b></p>
-                      <label>First Name</label>
+                      <p className="text-center text-white"><b>Create Your Fan Account</b></p>
+                      <label className="text-white">First Name</label>
                       <br />
                       <Field
-                        style={{ width: "100%", border: "none", backgroundColor: "#808080", borderRadius: "1rem", border: "3px solid green", }}
+                        style={{ width: "100%", border: "none",color:"white", backgroundColor: "#808080", borderRadius: "1rem", border: "3px solid green", }}
                         name="firstName"
+                        className="text-white"
                         placeHolder="First Name"
                         type="text"
                         className={
@@ -102,10 +103,10 @@ export default function FanSignUp() {
                       />
                     </div>
                     <div className="form-group col-md-12">
-                      <label>Last Name</label>
+                      <label className="text-white">Last Name</label>
                       <br />                      
                       <Field
-                        style={{ width: "100%", backgroundColor: "#808080", border: "none", border: "3px solid green", borderRadius: "1rem" }}
+                        style={{ width: "100%", backgroundColor: "#808080",color:"white", border: "none", border: "3px solid green", borderRadius: "1rem" }}
                         name="lastName"
                         placeHolder="Last Name"
                         type="text"
@@ -126,11 +127,12 @@ export default function FanSignUp() {
                   </div>
                   <div className="row">
                     <div className="form-group col-md-12">
-                      <label>Username</label>
+                      <label className="text-white">Username</label>
                       <br />                      
                       <Field
-                        style={{ width: "100%", backgroundColor: "#808080", border: "none", border: "3px solid green", borderRadius: "1rem" }}
+                        style={{ width: "100%", backgroundColor: "#808080",color:"white", border: "none", border: "3px solid green", borderRadius: "1rem" }}
                         name="userName"
+                        className="text-white"
                         placeHolder="UserName"
                         type="text"
                         className={
@@ -148,13 +150,13 @@ export default function FanSignUp() {
                       />
                     </div>
                     <div className="form-group col-12">
-                      <label>Email</label>
+                      <label className="text-white">Email</label>
                       <br />                      
                       <Field
-                        style={{ width: "100%", backgroundColor: "#808080", border: "none", border: "3px solid green", borderRadius: "1rem" }}
-                        name="email"
+                        style={{ width: "100%", backgroundColor: "#808080",color:"white", border: "none", border: "3px solid green", borderRadius: "1rem" }}
+                        name="email"                        
                         placeHolder="Email"
-                        type="text"
+                        type="text"                        
                         className={
                           "form-control" +
                           (errors.email && touched.email
@@ -168,17 +170,16 @@ export default function FanSignUp() {
                       component="div"
                       className="invalid-feedback"
                     />   
-                    </div>
-                                     
+                    </div>                                     
                   </div>
                   <div className="row">
                     <div className="form-group col-12">
-                      <label>Password</label>
+                      <label className="text-white">Password</label>
                       <div className="d-flex">
                       <div className="col-md-10 p-0">
                         <Field
-                          style={{ width: "100%", border: "none", backgroundColor: "#808080", borderRadius: "1rem", border: "3px solid green", }}
-                          name="password"
+                          style={{ width: "100%",border: "none",color:"white", backgroundColor: "#808080", borderRadius: "1rem", border: "3px solid green", }}
+                          name="password"                         
                           placeHolder="Password"
                           type={changable ? 'password' : 'text'}
                           className={
@@ -189,16 +190,16 @@ export default function FanSignUp() {
                           }
                         />
                         <ErrorMessage
-                        name="password"
-                        component="div"
-                        className="invalid-feedback"
-                      />
+                          name="password"
+                          component="div"
+                          className="invalid-feedback"
+                        />
                       </div>
                       <div className="col-md-2 align-self-center">
                         <label onClick={() => {
                           setChangable(!changable)
                         }}>
-                          {changable ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                          {changable ? <VisibilityOffIcon style={{color:"white"}}/> : <VisibilityIcon style={{color:"white"}}/>}
                         </label>
                       </div>
                       </div>
@@ -206,9 +207,9 @@ export default function FanSignUp() {
                     </div>
                   </div>
                   <div className="row">&nbsp;</div>
-                  <div style={{ textAlign: "center" }}>
+                  <div style={{ textAlign: "center", color:"white" }}>
                     <FormControlLabel
-                      control={<Checkbox name="checkedA" onClick={() => {
+                      control={<Checkbox name="checkedA" style={{color:"white"}} onClick={() => {
                         setCurrentButtonClick(!currentButtonClick)
                       }} />}
                       label="I accept the terms and conditions."
@@ -219,20 +220,7 @@ export default function FanSignUp() {
                         <button disabled={currentButtonClick}
                           className="btn btn-success"
                           type="submit" variant="contained" color="success">Sign Up</button>
-                    </div>
-                  {/* <button
-                          disabled={currentButtonClick}
-                          className="btn btn-primary"
-                          type="submit"
-                        >
-                          {isSubmitting && (
-                            <span className="spinner-border spinner-border-sm "></span>
-                          )}
-                          Save
-                        </button> */}
-                  &nbsp; &nbsp; &nbsp;
-
-
+                    </div>   
                 </>
               </Form>
             );

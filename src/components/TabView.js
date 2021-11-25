@@ -42,21 +42,21 @@ function a11yProps(index) {
 
 export default function TabView() {
   const [value, setValue] = React.useState(0);
-
+  const [checkbackgroundColor, setBackgroundColor] =React.useState({})  
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    setBackgroundColor("green")
   };
-
   return (
-    <Box sx={{ width: '100%'}}>
+    <Box sx={{width:"100%"}}>
 
-      <Box sx={{ borderBottom: 0, borderColor: 'divider' }}>
+      <Box component="span" sx={{ p: 2}}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" centered>
-          <Tab label="Fan signUp" {...a11yProps(0)} />
-          <Tab label="Talent signUp" {...a11yProps(1)} />          
+          <Tab label="Fan signUp" {...a11yProps(0)} style={{color:"white", border:"none",padding: "0.5em 3em",backgroundColor:value==0 ? checkbackgroundColor : "", borderTopRightRadius: "26px", borderBottomRightRadius: "26px", borderTopLeftRadius: "26px", borderBottomLeftRadius: "26px"}} />
+          <Tab label="Talent signUp" {...a11yProps(1)} style={{color:"white", border:"none",padding: "0.5em 3em",backgroundColor:value == 1 ?  checkbackgroundColor : "", borderTopRightRadius: "26px", borderBottomRightRadius: "26px", borderTopLeftRadius: "26px", borderBottomLeftRadius: "26px"}}/>          
         </Tabs>
       </Box>
-      <TabPanel value={value} index={0}>
+      <TabPanel value={value} index={0}>        
         <FanSignUp/>
       </TabPanel>
       <TabPanel value={value} index={1}>
